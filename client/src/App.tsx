@@ -1,6 +1,6 @@
 import "./App.css";
-import LoginPage from "./screens/login-screen";
-import RegisterPage from "./screens/register-screen";
+import LoginPage from "./features/account/screens/login.screen";
+import RegisterPage from "./features/account/screens/register.screen";
 
 function App() {
   return (

@@ -1,11 +1,12 @@
-import { useState } from "react";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { MouseEvent, useState } from "react";
 import TextField from "@mui/material/TextField";
-import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import IconButton from "@mui/material/IconButton";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Visibility from "@mui/icons-material/Visibility";
+import Button from "@mui/material/Button";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -13,16 +14,14 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
-    // Handle login functionality here
+    //TODO handle login functionality
   };
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleMouseDownPassword = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
 
@@ -37,12 +36,7 @@ const LoginPage = () => {
     >
       <Box
         component="form"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          width: 300,
-          gap: 20,
-        }}
+        sx={{ display: "flex", flexDirection: "column", width: 300, gap: 20 }}
       >
         <Typography variant="h5" sx={{ textAlign: "center" }}>
           Login
