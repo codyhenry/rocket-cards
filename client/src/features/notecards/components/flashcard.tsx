@@ -1,57 +1,26 @@
 import { useState } from "react";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardActions from "@mui/material/CardActions";
-import CardActionArea from "@mui/material/CardActionArea";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Stack from "@mui/system/Stack";
-
+import CardFront from "./card-front";
+import CardBack from "./card-back";
+//get the cards tags as props
 const FlashCard = () => {
-  const [flipped, setFlipped] = useState(false);
-  const [tags, setTags] = useState<string[]>([]);
+  const [isFlipped, setisFlipped] = useState(false);
 
   const handleClickFlip = () => {
-    setFlipped(!flipped);
+    setisFlipped(!isFlipped);
   };
 
-  /**
-   * Settings:
-   * Edit Card
-   * Add/Remove Tags
-   * Show/Hide Tags
-   */
   return (
     <Card sx={{ minWidth: 275, maxWidth: 345 }}>
-      <CardHeader
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Put title here"
-        subheader="Put tags here"
-      />
-      <CardActionArea>
-        <CardContent sx={{ minHeight: 200 }}>
-          <Typography variant="body2" color="text.secondary">
-            Put Content of front of card here
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Stack direction="row" justifyContent="space-between">
-          <Button size="small" color="primary">
-            Edit
-          </Button>
-          <Button size="small" color="primary">
-            Learned
-          </Button>
-        </Stack>
-      </CardActions>
+      {isFlipped ? (
+        <CardBack flipCard={handleClickFlip} content="test back content" />
+      ) : (
+        <CardFront
+          flipCard={handleClickFlip}
+          title="test"
+          content="test front content"
+        />
+      )}
     </Card>
   );
 };
